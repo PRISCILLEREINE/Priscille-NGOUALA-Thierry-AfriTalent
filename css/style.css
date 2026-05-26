@@ -5,8 +5,127 @@
   --light: #ffffff;
   --gray: #f5f6fa;
   --text: #1c1c1c;
-
 }
+body {
+  font-family: var(--font-body);
+  background-color: var(--light);
+  color: var(--text);
+  transition: background 0.3s ease, color 0.3s ease;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero {
+  background: var(--gray);
+  border-radius: var(--radius);
+}
+
+.card {
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.navbar.scrolled {
+  background-color: var(--light);
+  box-shadow: var(--shadow);
+  transition: 0.3s;
+}
+
+body.dark {
+  background-color: var(--dark);
+  color: var(--light);
+}
+
+body.dark .card {
+  background-color: #111827;
+  color: var(--light);
+}
+
+body.dark .navbar {
+  background-color: #111827;
+}
+
+body.dark .navbar .nav-link, body.dark .navbar-brand {
+  color: var(--light);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    text-align: center;
+    padding: 30px;
+  }
+}
+
+
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+/* ==========================
+   BENTO GRID (CHIFFRES CLÉS)
+========================== */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.bento-card {
+  background: var(--gray);
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Carte plus grande */
+.bento-card.big {
+  grid-column: span 2;
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Carte large */
+.bento-card.wide {
+  grid-column: span 3;
+}
+
+/* Counter style */
+.bento-card h3 {
+  font-size: 50px;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bento-card.wide {
+    grid-column: span 2;
+  }
+
+  .bento-card.big {
+    grid-column: span 2;
+  }
 
 
 #img{
