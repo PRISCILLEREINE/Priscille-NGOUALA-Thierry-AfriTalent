@@ -1,14 +1,17 @@
 :root{
-    --primary: #0d6efd;
+  --primary: #0d6efd;
   --secondary: #6c757d;
   --dark: #0b0f1a;
   --light: #ffffff;
   --gray: #f5f6fa;
   --text: #1c1c1c;
+  --font-body: "Inter", system-ui, sans-serif;
+  --radius: 1rem;
+  --shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
 }
 body {
   font-family: var(--font-body);
-  background-color: var(--light);
+  background-color: var(--bs-body-bg);
   color: var(--text);
   transition: background 0.3s ease, color 0.3s ease;
   background-size: cover;
@@ -53,7 +56,8 @@ body.dark .navbar {
   background-color: #111827;
 }
 
-body.dark .navbar .nav-link, body.dark .navbar-brand {
+body.dark .navbar .nav-link,
+body.dark .navbar-brand {
   color: var(--light);
 }
 
@@ -64,12 +68,11 @@ body.dark .navbar .nav-link, body.dark .navbar-brand {
   }
 }
 
-
-
 .hero .container {
   position: relative;
   z-index: 1;
 }
+
 /* ==========================
    BENTO GRID (CHIFFRES CLÉS)
 ========================== */
@@ -126,12 +129,66 @@ body.dark .navbar .nav-link, body.dark .navbar-brand {
   .bento-card.big {
     grid-column: span 2;
   }
+}
 
+#img {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/photo-arriere-plan.jpg);
+  gap: 100px;
+  padding: 100px;
+  align-items: center;
+  color: var(--light);
+}
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+@media (max-width: 576px) {
 
-#img{
-    background-image: linear-gradient(to bottom, rgb(0,0,0,0.5), rgb(0,0,0,0.5)), url(../images/photo-arriere-plan.jpg);
-    gap: 100px;
-    padding: 100px;
-    align-items: center;
-    color: var(--dark);
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero {
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .navbar-brand {
+    font-size: 1.3rem;
+  }
+
+  footer {
+    text-align: center;
+  }
+}
+
+/* =========================
+   RESPONSIVE TABLETTE
+========================= */
+@media (min-width: 577px) and (max-width: 991px) {
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero {
+    padding: 80px 30px;
+  }
+}
+
+/* =========================
+   GRAND ECRAN
+========================= */
+@media (min-width: 1200px) {
+
+  .hero h1 {
+    font-size: 4rem;
+  }
+
+  .container {
+    max-width: 1200px;
+  }
 }
