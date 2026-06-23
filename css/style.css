@@ -1,82 +1,77 @@
-:root{
- --primary: #0F766E;
- --secondary: #F59E0B;
- --accent: #2563EB;
- --light-bg: #F8FAFC;
- --dark-text: #1E293B;
- --gray: #f5f6fa;
+:root {
+  --primary: #0f766e;
+  --secondary: #f59e0b;
+  --accent: #2563eb;
+  --light-bg: #f8fafc;
+  --dark-text: #1e293b;
+  --gray: #f5f6fa;
   --text: #1c1c1c;
   --font-body: "Inter", system-ui, sans-serif;
   --radius: 1rem;
   --shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
-
 }
 .hero {
-    background: linear-gradient(
-        135deg,
-        #0F766E,
-        #2563EB
-    );
-    color: white;
+  background: linear-gradient(135deg, #0f766e, #2563eb);
+  color: white;
 }
 .about-section {
-    background: #F8FAFC;
+  background: #f8fafc;
 }
 .about-section .card {
-    border-left: 5px solid #0F766E;
+  border-left: 5px solid #0f766e;
 }
 .freelance-page {
-    background-color: #F8FAFC;
+  background-color: #f8fafc;
 }
 .card {
-    border: none;
-    border-radius: 15px;
+  border: none;
+  border-radius: 15px;
 }
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 .border-primary {
-    border: 3px solid #F59E0B !important;
+  border: 3px solid #f59e0b !important;
 }
 .btn-primary {
-    background-color: #0F766E;
-    border-color: #0F766E;
+  background-color: #0f766e;
+  border-color: #0f766e;
 }
 .contact-section {
-    background:
-    linear-gradient(
-    rgba(15,118,110,0.85),
-    rgba(37,99,235,0.85)),
+  background:
+    linear-gradient(rgba(15, 118, 110, 0.85), rgba(37, 99, 235, 0.85)),
     url("../images/bg.jpg");
 }
 .form-control {
-    border-radius: 10px;
+  border-radius: 10px;
 }
 footer {
-    background: #0F172A;
-    color: white;
+  background: #0f172a;
+  color: white;
 }
 footer a {
-    color: #CBD5E1;
+  color: #cbd5e1;
 }
 
 footer a:hover {
-    color: #F59E0B;
+  color: #f59e0b;
 }
 .dark-mode footer {
-    background: #020617;
-    color: white;
+  background: #020617;
+  color: white;
 }
 
 .dark-mode footer a {
-    color: #e2e8f0 !important;
+  color: #e2e8f0 !important;
 }
 body {
   font-family: var(--font-body);
   background-color: var(--bs-body-bg);
   color: var(--text);
-  transition: background 0.3s ease, color 0.3s ease;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -91,7 +86,9 @@ body {
   border: none;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .card:hover {
@@ -193,81 +190,78 @@ body.dark .navbar-brand {
     grid-column: span 2;
   }
 }
-
+/* mettre l'image en arriere plan*/
 .hero {
-    background-image: url("../images/photo-arriere-plan.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  background-image: url("../images/photo-arriere-plan.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
-    min-height: 85vh;
-    position: relative;
+  min-height: 85vh;
+  position: relative;
 }
 
 .hero-overlay {
-    background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.55);
 
-    min-height: 85vh;
+  min-height: 85vh;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    text-align: center;
-    color: white;
+  text-align: center;
+  color: white;
 }
 
 .hero h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    margin-bottom: 20px;
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 20px;
 }
 
 .hero p {
-    font-size: 1.3rem;
-    margin-bottom: 30px;
+  font-size: 1.3rem;
+  margin-bottom: 30px;
 }
 @media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
 
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
+  .hero p {
+    font-size: 1rem;
+  }
 }
 .stats-section {
-    background: linear-gradient(135deg, #f8fafc, #eef7f6);
-    padding: 80px 0;
+  background: linear-gradient(135deg, #f8fafc, #eef7f6);
+  padding: 80px 0;
 }
 
 .counter {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #0f766e;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #0f766e;
 }
 
 .stats-section p {
-    font-size: 1.1rem;
-    color: #555;
+  font-size: 1.1rem;
+  color: #555;
 }
 
 .hero h1 {
-    font-size: 4rem;
-    font-weight: bold;
+  font-size: 4rem;
+  font-weight: bold;
 }
 
 .hero p {
-    font-size: 1.3rem;
-    margin: 20px 0;
+  font-size: 1.3rem;
+  margin: 20px 0;
 }
 /* =========================
    RESPONSIVE MOBILE
 ========================= */
 @media (max-width: 576px) {
-
   .hero h1 {
     font-size: 2rem;
   }
@@ -290,39 +284,38 @@ body.dark .navbar-brand {
   }
 }
 footer {
-    background: #0f172a;
-    color: #f8fafc;
-    padding: 60px 30px;
+  background: #0f172a;
+  color: #f8fafc;
+  padding: 60px 30px;
 }
 
 footer h4,
 footer h5 {
-    color: white;
-    font-weight: bold;
+  color: white;
+  font-weight: bold;
 }
 
 footer p {
-    color: #e2e8f0;
+  color: #e2e8f0;
 }
 
 footer a {
-    color: #e2e8f0 !important;
-    text-decoration: none;
+  color: #e2e8f0 !important;
+  text-decoration: none;
 }
 
 footer a:hover {
-    color: #f59e0b !important;
+  color: #f59e0b !important;
 }
 
 footer hr {
-    border-color: rgba(255,255,255,0.2);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 /* =========================
    RESPONSIVE TABLETTE
 ========================= */
 @media (min-width: 577px) and (max-width: 991px) {
-
   .hero h1 {
     font-size: 2.5rem;
   }
@@ -336,7 +329,6 @@ footer hr {
    GRAND ECRAN
 ========================= */
 @media (min-width: 1200px) {
-
   .hero h1 {
     font-size: 4rem;
   }
@@ -365,7 +357,6 @@ footer hr {
   color: white;
 }
 
-
 /* BOUTON RETOUR HAUT */
 
 #backToTop {
@@ -385,73 +376,324 @@ footer hr {
 
 .navbar-scrolled {
   background-color: white !important;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   padding-top: 5px;
   padding-bottom: 5px;
   transition: all 0.3s ease;
 }
-.logo-navbar{
-    height:50px;
-    width:auto;
+.logo-navbar {
+  height: 50px;
+  width: auto;
 }
 
-.navbar-brand{
-    font-size:1.5rem;
-    color:#0F766E !important;
+.navbar-brand {
+  font-size: 1.5rem;
+  color: #0f766e !important;
 }
 /* Navbar normale */
 #mainNavbar {
-    transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 /* Navbar après scroll */
 .navbar-scrolled {
-    background-color: white !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    padding-top: 5px;
-    padding-bottom: 5px;
+  background-color: white !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 .navbar-scrolled {
-    background-color: #ffffff !important;
-    box-shadow: 0 4px 15px rgba(15, 118, 110, 0.2);
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 15px rgba(15, 118, 110, 0.2);
 }
 .stats-section {
-    padding: 80px 0;
+  padding: 80px 0;
 }
 
 .stats-section .counter {
-    font-size: 3rem;
-    font-weight: bold;
-    color: #0f766e;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #0f766e;
 }
 
 .stats-section p {
-    font-size: 1.1rem;
-    margin-top: 10px;
+  font-size: 1.1rem;
+  margin-top: 10px;
 }
 /* Animation de départ */
 
 .fade-in {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
 }
 
 /* Animation visible */
 
 .fade-in.show {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 /* Animation de départ */
 .fade-in {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
 }
 
 /* Quand l'élément devient visible */
 .fade-in.show {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
+}
+/* =========================
+   FOOTER MODERNE
+========================= */
+
+.footer-custom {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+}
+
+.footer-logo {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.footer-title {
+  color: #60a5fa;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.footer-text {
+  color: #cbd5e1;
+  font-size: 15px;
+}
+
+.footer-custom ul li {
+  margin-bottom: 10px;
+}
+
+.footer-custom ul li a {
+  color: #e2e8f0;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-custom ul li a:hover {
+  color: #60a5fa;
+  padding-left: 5px;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 22px;
+  margin-right: 15px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: #60a5fa;
+  transform: scale(1.2);
+}
+
+.footer-line {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.footer-copy {
+  color: #94a3b8;
+  font-size: 14px;
+}
+/* =========================
+   FONDS DES SECTIONS
+========================= */
+
+.section-bg {
+  background-color: #f1f5f9;
+  padding: 80px 0;
+}
+.card {
+  border: none;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+/* =========================
+   FONDS DES SECTIONS
+========================= */
+
+.section-bg {
+  background-color: #f1f5f9;
+  padding: 40px 0;
+}
+/* =========================
+   STYLE DES CARTES
+========================= */
+
+.card {
+  border: none;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+/* =========================
+   PAGE FREELANCES
+========================= */
+
+.freelance-page {
+  background-color: #f1f5f9;
+  min-height: 100vh;
+}
+/* =========================
+   PAGE FREELANCES
+========================= */
+
+.freelance-page {
+  background-color: #f1f5f9;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+/* Bannière */
+
+.freelance-banner {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  padding: 70px 20px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+}
+
+/* Zone filtre */
+
+.filter-box {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* Cartes */
+
+.card {
+  border: none;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+/* Mode sombre */
+
+.dark-mode .nav-link,
+.dark-mode footer a {
+  color: #4ade80 !important;
+}
+
+.dark-mode .nav-link:hover,
+.dark-mode footer a:hover {
+  color: #86efac !important;
+}
+/* =========================
+   CORRECTIONS DARK MODE
+========================= */
+
+/* Fond général */
+.dark-mode {
+  background-color: #0f172a;
+  color: #ffffff;
+}
+
+/* Navbar */
+.dark-mode .navbar {
+  background-color: #1e293b !important;
+}
+
+/* Liens navbar visibles */
+.dark-mode .nav-link {
+  color: #4ade80 !important;
+}
+
+.dark-mode .nav-link:hover {
+  color: #86efac !important;
+}
+
+/* Boutons */
+.dark-mode .btn-outline-dark {
+  border-color: white;
+  color: white;
+}
+
+/* Cartes */
+.dark-mode .card {
+  background-color: #1e293b !important;
+  color: white !important;
+}
+
+/* Textes dans les cartes */
+.dark-mode .card p,
+.dark-mode .card h3,
+.dark-mode .card .card-title {
+  color: white !important;
+}
+
+/* Texte secondaire Bootstrap */
+.dark-mode .text-muted {
+  color: #cbd5e1 !important;
+}
+
+/* Footer */
+.dark-mode footer {
+  background-color: #020617 !important;
+}
+
+/* Liens footer */
+.dark-mode footer a {
+  color: #4ade80 !important;
+}
+
+.dark-mode footer a:hover {
+  color: #86efac !important;
+}
+
+/* Sections avec fond clair */
+.dark-mode .section-bg,
+.dark-mode .freelance-page {
+  background-color: #0f172a !important;
+}
+
+/* Zone filtre */
+.dark-mode .filter-box {
+  background-color: #1e293b;
+  color: white;
+}
+
+/* Select */
+.dark-mode .form-select {
+  background-color: #334155;
+  color: white;
+  border: none;
+}
+
+/* Paragraphes généraux */
+.dark-mode p,
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5 {
+  color: white;
 }

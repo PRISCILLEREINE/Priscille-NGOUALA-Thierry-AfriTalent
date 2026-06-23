@@ -21,7 +21,6 @@ if (darkModeBtn) {
   });
 }
 
-
 /* =========================
    RETOUR EN HAUT
 ========================= */
@@ -29,7 +28,6 @@ if (darkModeBtn) {
 const backToTop = document.getElementById("backToTop");
 
 window.addEventListener("scroll", () => {
-
   if (!backToTop) return;
 
   if (window.scrollY > 300) {
@@ -37,31 +35,24 @@ window.addEventListener("scroll", () => {
   } else {
     backToTop.style.display = "none";
   }
-
 });
 
 if (backToTop) {
-
   backToTop.addEventListener("click", () => {
-
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
-
   });
-
 }
- window.addEventListener("scroll", function () {
+window.addEventListener("scroll", function () {
+  const navbar = document.getElementById("mainNavbar");
 
-    const navbar = document.getElementById("mainNavbar");
-
-    if (window.scrollY > 50) {
-        navbar.classList.add("navbar-scrolled");
-    } else {
-        navbar.classList.remove("navbar-scrolled");
-    }
-
+  if (window.scrollY > 50) {
+    navbar.classList.add("navbar-scrolled");
+  } else {
+    navbar.classList.remove("navbar-scrolled");
+  }
 });
 /* =========================
    COMPTEURS AU SCROLL
@@ -69,48 +60,42 @@ if (backToTop) {
 
 const counters = document.querySelectorAll(".counter");
 
-const counterObserver = new IntersectionObserver((entries) => {
+const counterObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const counter = entry.target;
+        const target = +counter.dataset.target;
 
-    entries.forEach(entry => {
+        let count = 0;
 
-        if (entry.isIntersecting) {
+        const updateCounter = () => {
+          const increment = target / 100;
 
-            const counter = entry.target;
-            const target = +counter.dataset.target;
+          if (count < target) {
+            count += increment;
 
-            let count = 0;
+            counter.innerText = Math.floor(count);
 
-            const updateCounter = () => {
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.innerText = target;
+          }
+        };
 
-                const increment = target / 100;
+        updateCounter();
 
-                if (count < target) {
-
-                    count += increment;
-
-                    counter.innerText = Math.floor(count);
-
-                    requestAnimationFrame(updateCounter);
-
-                } else {
-
-                    counter.innerText = target;
-
-                }
-            };
-
-            updateCounter();
-
-            counterObserver.unobserve(counter);
-        }
+        counterObserver.unobserve(counter);
+      }
     });
+  },
+  {
+    threshold: 0.5,
+  },
+);
 
-}, {
-    threshold: 0.5
-});
-
-counters.forEach(counter => {
-    counterObserver.observe(counter);
+counters.forEach((counter) => {
+  counterObserver.observe(counter);
 });
 
 // Validation formulaire contact
@@ -118,75 +103,71 @@ counters.forEach(counter => {
 const contactForm = document.getElementById("contactForm");
 
 if (contactForm) {
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-    contactForm.addEventListener("submit", function (e) {
+    let valid = true;
 
-        e.preventDefault();
+    // Champs
+    const nom = document.getElementById("nom");
+    const prenom = document.getElementById("prenom");
+    const email = document.getElementById("email");
+    const sujet = document.getElementById("sujet");
+    const message = document.getElementById("message");
 
-        let valid = true;
+    // Zones erreurs
+    document.getElementById("errorNom").textContent = "";
+    document.getElementById("errorPrenom").textContent = "";
+    document.getElementById("errorEmail").textContent = "";
+    document.getElementById("errorSujet").textContent = "";
+    document.getElementById("errorMessage").textContent = "";
+    document.getElementById("successMsg").textContent = "";
 
-        // Champs
-        const nom = document.getElementById("nom");
-        const prenom = document.getElementById("prenom");
-        const email = document.getElementById("email");
-        const sujet = document.getElementById("sujet");
-        const message = document.getElementById("message");
+    // Vérification nom
+    if (nom.value.trim() === "") {
+      document.getElementById("errorNom").textContent =
+        "Le nom est obligatoire";
+      valid = false;
+    }
 
-        // Zones erreurs
-        document.getElementById("errorNom").textContent = "";
-        document.getElementById("errorPrenom").textContent = "";
-        document.getElementById("errorEmail").textContent = "";
-        document.getElementById("errorSujet").textContent = "";
-        document.getElementById("errorMessage").textContent = "";
-        document.getElementById("successMsg").textContent = "";
+    // Vérification prénom
+    if (prenom.value.trim() === "") {
+      document.getElementById("errorPrenom").textContent =
+        "Le prénom est obligatoire";
+      valid = false;
+    }
 
-        // Vérification nom
-        if (nom.value.trim() === "") {
-            document.getElementById("errorNom").textContent =
-                "Le nom est obligatoire";
-            valid = false;
-        }
+    // Vérification email avec regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        // Vérification prénom
-        if (prenom.value.trim() === "") {
-            document.getElementById("errorPrenom").textContent =
-                "Le prénom est obligatoire";
-            valid = false;
-        }
+    if (!emailRegex.test(email.value)) {
+      document.getElementById("errorEmail").textContent =
+        "Adresse email invalide";
+      valid = false;
+    }
 
-        // Vérification email avec regex
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Vérification sujet
+    if (sujet.value === "") {
+      document.getElementById("errorSujet").textContent =
+        "Veuillez choisir un sujet";
+      valid = false;
+    }
 
-        if (!emailRegex.test(email.value)) {
-            document.getElementById("errorEmail").textContent =
-                "Adresse email invalide";
-            valid = false;
-        }
+    // Vérification message minimum 20 caractères
+    if (message.value.trim().length < 20) {
+      document.getElementById("errorMessage").textContent =
+        "Le message doit contenir au moins 20 caractères";
+      valid = false;
+    }
 
-        // Vérification sujet
-        if (sujet.value === "") {
-            document.getElementById("errorSujet").textContent =
-                "Veuillez choisir un sujet";
-            valid = false;
-        }
+    // Succès
+    if (valid) {
+      document.getElementById("successMsg").textContent =
+        "✅ Votre message a été envoyé avec succès !";
 
-        // Vérification message minimum 20 caractères
-        if (message.value.trim().length < 20) {
-            document.getElementById("errorMessage").textContent =
-                "Le message doit contenir au moins 20 caractères";
-            valid = false;
-        }
-
-        // Succès
-        if (valid) {
-            document.getElementById("successMsg").textContent =
-                "✅ Votre message a été envoyé avec succès !";
-
-            contactForm.reset();
-        }
-
-    });
-
+      contactForm.reset();
+    }
+  });
 }
 /* =========================
    FADE IN AU SCROLL
@@ -194,21 +175,20 @@ if (contactForm) {
 
 const fadeElements = document.querySelectorAll(".fade-in");
 
-const fadeObserver = new IntersectionObserver((entries) => {
+const fadeObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  },
+  {
+    threshold: 0.2,
+  },
+);
 
-  entries.forEach(entry => {
-
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
-
-  });
-
-}, {
-  threshold: 0.2
-});
-
-fadeElements.forEach(element => {
+fadeElements.forEach((element) => {
   fadeObserver.observe(element);
 });
 const filter = document.getElementById("filter");
@@ -218,7 +198,7 @@ if (filter) {
   filter.addEventListener("change", function () {
     const category = this.value;
 
-    freelancers.forEach(card => {
+    freelancers.forEach((card) => {
       if (category === "all" || card.classList.contains(category)) {
         card.style.display = "block";
       } else {
